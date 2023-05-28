@@ -1,28 +1,28 @@
-import {genres1, genres2} from "../../../assets/DUMMY_IMAGES/genres";
 import useSlider from "../../../hooks/useSlider";
 import SliderButtons from "./Slider/SliderButtons";
-import Slider from "./Slider/Slider";
+import SliderGenres from "./Slider/SliderGenres";
+import genres from "../../../data/genres";
 export default function Watchlist() {
+  const SLIDES = 6;
+
   const { activeMovie, handleTranslateLeft, handleTranslateRight, TRANSLATE } =
-    useSlider(genres1.length);
+    useSlider(SLIDES);
   return (
     <div className="mt-[3rem]">
       <SliderButtons
         title="Genres"
-        link="swipe/genres"
+        link="genres"
         handleTranslateLeft={handleTranslateLeft}
         handleTranslateRight={handleTranslateRight}
       />
-      <Slider
-        movies={genres1}
-        genres={false}
+      <SliderGenres
+        data={genres.filter((g, i) => i <= 5)}
         TRANSLATE={TRANSLATE}
         activeMovie={activeMovie}
         titleCentered={true}
       />
-      <Slider
-        movies={genres2}
-        genres={false}
+      <SliderGenres
+        data={genres.filter((g, i) => i > 5 && i <= 11)}
         TRANSLATE={TRANSLATE}
         activeMovie={activeMovie}
         titleCentered={true}

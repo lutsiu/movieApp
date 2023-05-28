@@ -9,7 +9,7 @@ interface Props {
 }
 export default function SliderButtons(props: Props) {
   return (
-    <div className="flex items-center">
+    <div className="flex w-fit mx-auto lg:ml-[1.5rem] items-center">
       <h3 className="xl:text-3xl text-center   2xl:text-4xl font-bold">{props.title}</h3>
       <span className="flex ml-[2rem] mr-[4.4rem]">
         <FaChevronLeft

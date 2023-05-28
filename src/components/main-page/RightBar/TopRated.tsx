@@ -1,25 +1,27 @@
-import series from "../../../assets/DUMMY_IMAGES/series";
-import {FaPlus} from 'react-icons/fa';
+import useFetchData from "../../../hooks/useFetchData";
 import useSlider from "../../../hooks/useSlider";
 import SliderButtons from "./Slider/SliderButtons";
-import Slider from "./Slider/Slider";
+import SliderTopRated from './Slider/SliderTopRated';
 export default function Watchlist() {
+
+  const SLIDES = 8;
+
   const { activeMovie, handleTranslateLeft, handleTranslateRight, TRANSLATE } =
-    useSlider(series.length);
+    useSlider(SLIDES);
+
+  const {data} = useFetchData('top');
+
 
   return (
     <div className="mt-[3rem]">
       <SliderButtons
         title="Top Rated"
-        link="swipe/top-rated"
+        link="discover/top"
         handleTranslateLeft={handleTranslateLeft}
         handleTranslateRight={handleTranslateRight}
       />
-      <Slider
-        movies={series}
-        genres={true}
-        yellowBtnTitle="Watch trailer"
-        grayBtnTitle={<FaPlus/>}
+      <SliderTopRated
+        movies={data?.results.filter((_, i) => i < SLIDES)}
         TRANSLATE={TRANSLATE}
         activeMovie={activeMovie}
       />

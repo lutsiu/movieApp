@@ -1,26 +1,5 @@
-.link {
-  @apply text-3xl text-gray-100 relative;
-  &::before {
-    content: "";
-    @apply absolute top-[3rem] w-0 h-[0.2rem] bg-main duration-500 ease-in-out;
-  }
-  &:hover {
-    @apply text-main duration-500;
-  }
-  &:hover::before {
-    @apply w-[120%];
-  }
-  &Active {
-    @apply text-3xl text-main relative font-black;
-    &::before {
-      content:'';
-      @apply absolute top-[3rem] w-[120%] h-[0.2rem] bg-main duration-500 ease-in-out;
-    }
-  }
-}
-
 .slide {
-  @apply min-w-full bg-cover w-full  bg-no-repeat ease-in-out duration-500 relative;
+  @apply min-w-full bg-cover w-full   bg-no-repeat ease-in-out duration-500 relative;
   &::before {
     content: '';
     @apply absolute w-full h-full;
@@ -28,7 +7,7 @@
   }
 }
 .popularCard {
-  @apply flex-1 bg-cover bg-center bg-no-repeat relative h-[30rem] rounded-[1.7rem] overflow-hidden;
+  @apply w-full sm:w-[48%] md:w-0 md:flex-1 mb-[2.5rem]  bg-cover bg-center bg-no-repeat relative h-[30rem] rounded-[1.7rem] overflow-hidden;
   &::before {
     content: '';
     @apply absolute w-full h-full;

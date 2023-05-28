@@ -8,7 +8,7 @@ export default function Main() {
   
 
   return (
-    <div className="flex-1 py-[4rem] w-[60%] lg:px-[4rem] xl:px-[3rem] 2xl:px-[4rem]">
+    <div className="flex-1 py-[4rem] w-[60%] px-[2rem] lg:px-[4rem] xl:px-[3rem] 2xl:px-[4rem]">
       <NavBar/>
       <MainSlider/>
       <Popular/>

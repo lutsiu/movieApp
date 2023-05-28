@@ -1,24 +1,27 @@
 import useSlider from "../../../hooks/useSlider";
 import SliderButtons from "./Slider/SliderButtons";
-import images from "../../../assets/DUMMY_IMAGES/images";
-import Slider from "./Slider/Slider";
+import SliderWatchList from "./Slider/SliderWatchlist";
+import { useSelector } from "react-redux";
+import useFetchMovie from "../../../hooks/useFetchMovie";
 export default function Watchlist() {
+
+  const { watchlist } = useSelector((state: { watchlist: number[] }) => state);
+  const {movies, isLoading} = useFetchMovie(watchlist);
+
+
   const { activeMovie, handleTranslateLeft, handleTranslateRight, TRANSLATE } =
-    useSlider(images.length);
+    useSlider(watchlist.length);  
 
   return (
     <div className="mt-[3rem]">
       <SliderButtons
         title="Watchlist"
-        link="swipe/watchlist"
+        link="watchlist"
         handleTranslateLeft={handleTranslateLeft}
         handleTranslateRight={handleTranslateRight}
       />
-      <Slider
-        movies={images}
-        genres={false}
-        yellowBtnTitle="Watch now"
-        grayBtnTitle="Drop"
+      <SliderWatchList
+        movies={movies}
         TRANSLATE={TRANSLATE}
         activeMovie={activeMovie}
       />

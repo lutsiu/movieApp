@@ -1,11 +1,16 @@
 import useResize from "../../hooks/useResize";
 import useSlider from "../../hooks/useSlider";
-import data from "../../assets/DUMMY_IMAGES/DUMMY_MOVIES/dummy_swipe";
 import BackHomeButton from "../../UI/Buttons/BackHomeButton";
 import Slider from "./Slider";
 import Controls from "./Controls";
-export default function SwipePage() {
-  const width = useResize();
+
+interface Props {
+  title: string;
+  data: {id: number, image: string, title: string}[]
+}
+
+export default function SwipePage(props: Props) {
+  const { width } = useResize();
 
   let MOVIES_PER_SLIDE = 4;
 
@@ -17,7 +22,8 @@ export default function SwipePage() {
     MOVIES_PER_SLIDE = 1;
   }
 
-  const SLIDES = data.length / MOVIES_PER_SLIDE;
+  const SLIDES = Math.ceil(props.data.length / MOVIES_PER_SLIDE);
+
 
   const {
     activeMovie,
@@ -28,14 +34,9 @@ export default function SwipePage() {
 
   return (
     <div className="pt-[2rem] flex flex-col relative items-center">
-      <div className="pl-[2rem] sm:pl-0 absolute left-[2rem]">
-        <BackHomeButton link="../../" />
-      </div>
-      <h1 className="text-5xl font-black mt-[6rem]">
-        Top rated Movies
-      </h1>
+      <h1 className="text-5xl font-black mt-[2rem]">{props.title}</h1>
       <Slider
-        data={data}
+        data={props.data}
         activeMovie={activeMovie}
         translateUnit={MOVIES_PER_SLIDE}
       />

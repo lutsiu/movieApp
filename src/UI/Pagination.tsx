@@ -15,7 +15,7 @@ export default function Pagination(props: Props) {
           key={i}
           className={`${
             isActive ? "bg-main" : "bg-white"
-          } ${"inline-block w-[1rem] h-[1rem] rounded-full cursor-pointer hover:bg-main duration-500"}`}
+          } ${"inline-block w-[1rem] h-[1rem] rounded-full cursor-pointer hover:bg-main duration-500 flex-wrap"}`}
           onClick={() => {
             props.translateByButton(i);
           }}
@@ -26,7 +26,7 @@ export default function Pagination(props: Props) {
 
   return (
     <div
-      className="flex items-center px-[0.8rem] py-[0.9rem] rounded-lg self-center h-fit gap-[1rem]"
+      className="flex items-center px-[0.8rem] py-[0.9rem] rounded-lg self-center h-fit gap-[1rem] w-fit"
       style={{ backgroundColor: "rgba(249,249,249, 0.2)" }}
     >
       {paginationBtns}

@@ -10,12 +10,14 @@ const data: {
   rate: number;
   date: string;
   descr: string;
+  link: string;
 }[] = [
   {
     image: aot,
     title: "Attack on titan",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -24,6 +26,7 @@ const data: {
     title: "Avengres",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -32,6 +35,7 @@ const data: {
     title: "My dress-up darling",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -40,6 +44,7 @@ const data: {
     title: "Guadians of galaxy vol. 3",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -48,6 +53,7 @@ const data: {
     title: "Attack on titan",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -56,6 +62,7 @@ const data: {
     title: "Avengres",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -64,6 +71,7 @@ const data: {
     title: "My dress-up darling",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -72,6 +80,7 @@ const data: {
     title: "Guadians of galaxy vol. 3",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -80,6 +89,7 @@ const data: {
     title: "Attack on titan",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -88,6 +98,7 @@ const data: {
     title: "Avengres",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -96,6 +107,7 @@ const data: {
     title: "My dress-up darling",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },
@@ -104,6 +116,43 @@ const data: {
     title: "Guadians of galaxy vol. 3",
     rate: 4.9,
     date: "10 Oct 2022",
+    link: '../movie',
+    descr:
+      "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
+  },
+  {
+    image: aot,
+    title: "Attack on titan",
+    rate: 4.9,
+    date: "10 Oct 2022",
+    link: '../movie',
+    descr:
+      "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
+  },
+  {
+    image: avengers,
+    title: "Avengres",
+    rate: 4.9,
+    date: "10 Oct 2022",
+    link: '../movie',
+    descr:
+      "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
+  },
+  {
+    image: darling,
+    title: "My dress-up darling",
+    rate: 4.9,
+    date: "10 Oct 2022",
+    link: '../movie',
+    descr:
+      "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
+  },
+  {
+    image: galaxy,
+    title: "Guadians of galaxy vol. 3",
+    rate: 4.9,
+    date: "10 Oct 2022",
+    link: '../movie',
     descr:
       "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
   },

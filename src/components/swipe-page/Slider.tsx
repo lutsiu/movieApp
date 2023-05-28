@@ -4,16 +4,14 @@ interface Props {
   data: {
     image: string;
     title: string;
-    rate: number;
-    date: string;
-    descr: string;
-  }[];
+    id: number;
+  }[] | null;
   activeMovie: number;
   translateUnit: number;
 }
 
 export default function Slider(props: Props) {
-  const width = useResize();
+  const {width} = useResize();
 
   let SLIDE_WIDTH = 25;
   if (width <= 992 && width > 576) {
@@ -35,27 +33,21 @@ export default function Slider(props: Props) {
           }%)`,
         }}
       >
-        {props.data.map((movie, i) => {
+        {props.data?.map((movie, i) => {
           return (
             <Link
-              to="/movie"
+              to={`${movie.id.toString()}`}
               key={i}
               className="max-w-[90%] min-w-[90%] sm:min-w-[47%] sm:max-w-[47%]
-              lg:min-w-[22%] lg:max-w-[22%] h-[50rem] rounded-[1.7rem] overflow-hidden duration-500 hover:scale-110"
+              lg:min-w-[22%] lg:max-w-[22%] h-[50rem]  overflow-hidden duration-500 hover:scale-110"
             >
-              <div className="relative h-[70%]">
-                <span
-                  className="absolute right-0 top-0 w-[7rem] h-[3.8rem] bg-main flex items-center justify-center text-black font-bold text-3xl"
-                  style={{ borderRadius: "0 1.7rem" }}
-                >
-                  {`${movie.rate}`}
-                </span>
-                <img src={movie.image} className="w-full h-full object-cover" />
+              <div className="relative h-[85%]">
+                
+                <img src={movie.image} className="w-full h-full object-cover rounded-[1.7rem]" />
               </div>
-              <div className="mt-[1rem] h-[30%]">
-                <h3 className="text-3xl">{movie.title}</h3>
-                <span className="text-lg text-gray-300">{movie.date}</span>
-                <p className="mt-[1rem] text-lg">{movie.descr}</p>
+              <div className="mt-[1rem] h-[15%]">
+                <h3 className="text-3xl text-center mt-[0.5rem]">{movie.title}</h3>
+                
               </div>
             </Link>
           );
