@@ -7,12 +7,10 @@ interface Props {
   movies: MOVIE_DATA[] | [];
 }
 export default function Grid(props: Props) {
-
-
-
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-[3rem] mt-[3rem] md:px-[4rem]">
-        {props.movies.length > 20 && props.movies.map((movie, i) => {
+      {props.movies.length > 20 &&
+        props.movies.map((movie, i) => {
           const vote = movie
             ? Math.floor(movie.vote_average / 2) +
               movie.vote_average -
@@ -38,6 +36,6 @@ export default function Grid(props: Props) {
             </Link>
           );
         })}
-      </div>
-  )
+    </div>
+  );
 }

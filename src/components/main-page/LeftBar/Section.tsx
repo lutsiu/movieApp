@@ -14,7 +14,7 @@ export default function Section(props: Props) {
       <ul>
         {props.sections.map((sect, i) => {
           return (
-            <li key={i} className="mt-[1.6rem]">
+            <li key={i} className="mt-[3rem]">
               <NavLink
                 to={`../${sect.title.toLowerCase()}`}
                 className={({ isActive }) =>

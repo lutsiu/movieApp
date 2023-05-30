@@ -9,7 +9,7 @@ interface Props {
 export default function SecondaryNav(props: Props) {
   return (
     <nav>
-      <ul className="flex w-fit mx-auto gap-[3rem] justify-center sm:gap-[5rem] items-center flex-wrap">
+      <ul className="flex w-fit mx-auto gap-[3rem] justify-center sm:gap-[5rem] items-center flex-wrap px-[2rem]">
         {props.links.map((link, i) => {
           return (
             <li key={i}>

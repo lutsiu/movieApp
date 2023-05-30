@@ -7,7 +7,7 @@ export interface MOVIE_DATA {
   overview: string,
   release_date: string;
   vote_average: number;
-  genres?: {id: number, name :string}[]
+  genres?: {id: number, name :string}[];
 }
 
 export interface PEOPLE_DATA {

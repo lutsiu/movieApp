@@ -2,17 +2,18 @@ import Header from "./Header";
 import ShiftButtons from "./ShiftButtons";
 import useSlider from "../../../hooks/useSlider";
 import useResize from "../../../hooks/useResize";
-import { API_DATA } from "../../../data/interfaces";
+import { MOVIE_DATA } from "../../../data/interfaces";
 import { IMAGE_PATH } from "../../../data/API";
-import { Link } from "react-router-dom";
 import ButtonWatchList from "../../../UI/Buttons/ButtonWatchList";
+import { useNavigate } from "react-router-dom";
 import MainButton from "../../../UI/Buttons/MainButton";
 interface Props {
   title: string;
-  movies: API_DATA[] | [];
+  movies: MOVIE_DATA[] | [];
 }
 export default function Slider(props: Props) {
   const { width } = useResize();
+  const navigate = useNavigate();
 
   const ceil = (i: number): number => {
     return Math.ceil(props.movies.length / i);
@@ -31,10 +32,12 @@ export default function Slider(props: Props) {
   }
   const { activeMovie, handleTranslateLeft, handleTranslateRight } =
     useSlider(SLIDES);
+
   return (
     <>
       <div className="flex justify-between sm:pr-[2%] md:pr-[1%] items-center mt-[4rem] mb-[2rem]">
         <Header title={props.title} />
+
         <ShiftButtons
           handleTranslateLeft={handleTranslateLeft}
           handleTranslateRight={handleTranslateRight}
@@ -61,7 +64,9 @@ export default function Slider(props: Props) {
                 />
                 <div className="absolute top-[65%] flex justify-between w-full">
                   <ButtonWatchList title={false} />
-                  <MainButton>See details</MainButton>
+                  <MainButton onClick={() => navigate(`/movie/${movie.id}`)}>
+                    More info
+                  </MainButton>
                 </div>
 
                 <h3 className="mt-[1rem] text-3xl text-center md:text-left md:text-2xl lg:text-3xl">

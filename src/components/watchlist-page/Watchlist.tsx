@@ -6,11 +6,10 @@ import Controls from "../swipe-page/Controls";
 import { useSelector } from "react-redux";
 import useFetchMovie from "../../hooks/useFetchMovie";
 export default function SwipePage() {
-  const {watchlist} = useSelector((state: {watchlist: number[]}) => state);
+  const { watchlist } = useSelector((state: { watchlist: number[] }) => state);
   const { width } = useResize();
 
-  const {movies} = useFetchMovie(watchlist);
-
+  const { movies } = useFetchMovie(watchlist);
 
   let MOVIES_PER_SLIDE = 4;
 
@@ -33,27 +32,33 @@ export default function SwipePage() {
 
   return (
     <div className="py-[2rem]">
-      <SecondaryNav links={[
+      <SecondaryNav
+        links={[
           { link: "../", title: "Home" },
           { link: "../discover", title: "Discover" },
           { link: "../celebrities", title: "Celebrities" },
           { link: "../genres", title: "Genres" },
           { link: "../watchlist", title: "Watchlist" },
-        ]} />
+        ]}
+      />
       <div className="pt-[2rem] flex flex-col relative items-center">
-        <h1 className="text-5xl font-black mt-[6rem]">Top rated Movies</h1>
-        <Slider
+        <h1 className="text-5xl font-black mt-[6rem]">Your watchlist</h1>
+        {movies.length > 0  && <Slider
           data={movies ? movies : null}
           activeMovie={activeMovie}
           translateUnit={MOVIES_PER_SLIDE}
         />
-        <Controls
-          handleTranslateLeft={handleTranslateLeft}
-          handleTranslateRight={handleTranslateRight}
-          translateByButton={translateByButton}
-          amountOfButtons={SLIDES}
-          activeMovie={activeMovie}
-        />
+        }
+        {movies.length === 0 && <p className="mt-[10rem] text-5xl">Your watchlist is empty :(</p>}
+        {movies.length !== 0 && (
+          <Controls
+            handleTranslateLeft={handleTranslateLeft}
+            handleTranslateRight={handleTranslateRight}
+            translateByButton={translateByButton}
+            amountOfButtons={SLIDES}
+            activeMovie={activeMovie}
+          />
+        )}
       </div>
     </div>
   );

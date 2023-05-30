@@ -23,6 +23,7 @@ export default function useFetchMovie(ids: number[] | number) {
         } else {
           const res = await fetch(`${HTTPS}${REQ(ids)}`);
           const data = await res.json();
+
           setMovie(data);
         }
       } catch {

@@ -2,7 +2,7 @@ import ButtonDrop from "../../../../UI/Buttons/ButtonDrop";
 import MainButton from "../../../../UI/Buttons/MainButton";
 import styles from "../style.module.scss";
 import { MOVIE_DATA } from "../../../../data/interfaces";
-
+import { useNavigate } from "react-router-dom";
 import { IMAGE_PATH } from "../../../../data/API";
 interface Props {
   movies: MOVIE_DATA[] | [];
@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function MyMovies(props: Props) {
+  const navigate = useNavigate();
   return (
     <div className="mt-[3rem]">
       {props.movies.length === 0 && <span className="block w-fit mx-auto text-2xl">Watchlist is empty:(</span>}
@@ -38,9 +39,9 @@ export default function MyMovies(props: Props) {
                     {movie.title}
                   </span>
 
-                  <div className="absolute bottom-[1rem] flex gap-[1rem]">
+                  <div className="absolute bottom-[1rem] flex justify-between w-[90%]">
                     <ButtonDrop />
-                    <MainButton>Watch now</MainButton>
+                    <MainButton onClick={() => navigate(`/movie/${movie.id}`)} >More info</MainButton>
                   </div>
                 </div>
               );

@@ -49,7 +49,7 @@ export default function CelebrityDetails() {
           <div className="flex overflow-x-auto overflow-y-hidden gap-[4%] md:gap-[2rem]">
             {movies && movies.map((movie, i) => {
               return (
-                <Link to={`../../${movie.id}`} key={i} className="min-w-[46%] md:min-w-[25%] rounded-2xl">
+                <Link to={`/movie/${movie.id}`} key={i} className="min-w-[46%] md:min-w-[25%] rounded-2xl">
                   <img src={`${IMAGE_PATH}${"w342"}${movie.poster_path}`} alt='poster' className="max-h-[85%] w-full object-cover rounded-2xl" />
                   <span className="inline-block text-center text-xl mt-[5%] w-full">{movie.title}</span>
                 </Link>

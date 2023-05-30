@@ -2,11 +2,12 @@ import useFetchData from "../../../hooks/useFetchData";
 import ButtonWatchList from '../../../UI/Buttons/ButtonWatchList';
 import MainButton from "../../../UI/Buttons/MainButton";
 import styles from "./style.module.scss";
-import { API_DATA } from "../../../data/interfaces";
+import { MOVIE_DATA } from "../../../data/interfaces";
 import useResize from "../../../hooks/useResize";
 import { FaPlus } from "react-icons/fa";
 import { IMAGE_PATH } from "../../../data/API";
 import getGenre from "../../../hooks/getGenre";
+import { useNavigate } from "react-router-dom";
 export default function Popular() {
   const {width} =  useResize();
 
@@ -21,13 +22,13 @@ export default function Popular() {
     data,
     isLoading,
   }: {
-    data: {results: API_DATA[] } | null ;
+    data: {results: MOVIE_DATA[] } | null ;
     isLoading: boolean;
   } = useFetchData("popular");
 
   const movies = data?.results.filter((d, i) => i > 4 && i < (images === 3? 8 : 9));
 
-  
+  const navigate = useNavigate();
 
   return (
     <div className="mt-[6rem]">
@@ -48,7 +49,7 @@ export default function Popular() {
               </div>
               <div className="absolute bottom-0 p-[1rem] flex justify-between w-full">
                 <ButtonWatchList title={false}/>
-                <MainButton>More info</MainButton>
+                <MainButton onClick={() => navigate(`/movie/${movie.id}`)}>More info</MainButton>
               </div>
             </div>
           );

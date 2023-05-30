@@ -16,7 +16,7 @@ export default function Header(props: Props) {
         <GrayButton>
           <FaChevronLeft />
         </GrayButton>
-        <span className="font-black text-3xl">Back home</span>
+        
       </Link>
       
     </>

@@ -2,6 +2,7 @@ import useFetchData from "../../hooks/useFetchData";
 import { useParams } from "react-router-dom";
 import { MOVIE_DATA } from "../../data/interfaces";
 import GridPage from "../../components/grid-page/GridPage";
+import BackButton from "../../UI/Buttons/BackHomeButton";
 type Option = "top" | "popular" | "upcoming";
 export default function DsicoverMovies() {
   const { option } = useParams();
@@ -18,10 +19,13 @@ export default function DsicoverMovies() {
 
   return (
     <div className="mt-[4rem]">
-      <h1 className="w-fit mx-auto text-5xl font-black">{`${option!.replace(
-        option![0],
-        option![0].toUpperCase()
-      )} movies`}</h1>
+      <div className="flex gap-[10%] px-0 md:px-[2rem] lg:px-[4rem]">
+        <BackButton link="../" />
+        <h1 className="w-fit mx-auto text-3xl sm:text-5xl font-black">{`${option!.replace(
+          option![0],
+          option![0].toUpperCase()
+        )} movies`}</h1>
+        </div>
       <GridPage movies={movies} />
     </div>
   );

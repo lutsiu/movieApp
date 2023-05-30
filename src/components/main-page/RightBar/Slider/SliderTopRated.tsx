@@ -4,12 +4,14 @@ import styles from "../style.module.scss";
 import { MOVIE_DATA } from "../../../../data/interfaces";
 import { IMAGE_PATH } from "../../../../data/API";
 import getGenre from "../../../../hooks/getGenre";
+import { useNavigate } from "react-router-dom";
 interface Props {
   movies: MOVIE_DATA[] | undefined;
   activeMovie: number;
   TRANSLATE: number;
 }
 export default function MyMovies(props: Props) {
+  const navigate = useNavigate();
   return (
     <div className="mt-[3rem]">
       <div
@@ -39,9 +41,9 @@ export default function MyMovies(props: Props) {
                   <span>{movie.vote_average}</span>
                   <span>{genre}</span>
                 </div>
-                <div className="absolute bottom-[1rem] flex gap-[1rem]">
+                <div className="absolute bottom-[1rem] flex justify-between w-[90%] gap-[1rem]">
                   <ButtonWatchList title={false} />
-                  <MainButton>Watch trailer</MainButton>
+                  <MainButton onClick={() => navigate(`/movie/${movie.id}`)}>More info</MainButton>
                 </div>
               </div>
             );

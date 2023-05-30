@@ -1,6 +1,7 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import MainPage from './MainPage';
-import HomePage from './Pages/MainPage';
+import HomePageLayout from './Pages/HomePage/HomePageLayout';
+import HomePage from './Pages/HomePage/HomePage';
 import GenrePage from './Pages/Genres/GenrePage';
 import MoviePage from './Pages/MoviePage';
 import DiscoverPage from './Pages/Discover/DiscoverPage';
@@ -12,9 +13,13 @@ import CelebrityLayout from './Pages/Celebrities/CelebrityLayout';
 import CelebrityDetails from './Pages/Celebrities/CelebrityDetails';
 import GenreLayout from './Pages/Genres/GenreLayout'
 import GenreMovies from './Pages/Genres/GenreMovies';
+import SearchPage from './Pages/HomePage/SearchPage';
 const router = createBrowserRouter([
   {index: true, element:<MainPage/>},
-  {path: '/home/:type', element: <HomePage/>, },
+  {path: '/home', element: <HomePageLayout/>, children: [
+    {index: true, element: <HomePage/>},
+    {path: 'search', element: <SearchPage/>}
+  ]},
   {path: '/discover', element: <DiscoverPageLayout/>, children: [
     {index: true, element: <DiscoverPage/>},
     {path: ':option', element: <DiscoverMovies/>}

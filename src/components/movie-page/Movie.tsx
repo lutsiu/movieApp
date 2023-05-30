@@ -1,7 +1,5 @@
 import BackHomeButton from "../../UI/Buttons/BackHomeButton";
 import styles from "./styles.module.scss";
-import lokiBig from "../../assets/DUMMY_IMAGES/loki_big.jpg";
-import lokiSmall from "../../assets/DUMMY_IMAGES/loki_small.jpg";
 import ButtonWatchList from "../../UI/Buttons/ButtonWatchList";
 import MainButton from "../../UI/Buttons/MainButton";
 import Stars from "../../UI/Stars";
@@ -9,25 +7,32 @@ import useFetchMovie from "../../hooks/useFetchMovie";
 import useResize from "../../hooks/useResize";
 import { useParams } from "react-router-dom";
 import { IMAGE_PATH } from "../../data/API";
-import genresObject from "../../data/genres";
+import { createPortal } from "react-dom";
+import Trailer from '../trailer/Trailer';
+import { useState } from "react";
+import useFetchTrailer from '../../hooks/useFetchTrailer';
 export default function Movie() {
   const { width } = useResize();
-
+  const [showTrailer, setShowTrailer] = useState(false);
   const { movie: movieId } = useParams();
 
   const { movie } = useFetchMovie(+movieId!);
+  const {trailer} = useFetchTrailer(movieId!);
 
-  console.log(movie);
+
+  const handleShowTrailer = () => {
+    setShowTrailer(true);
+  };
 
   return (
     <div
       className={styles.container}
       style={{
-        backgroundImage: `url(${IMAGE_PATH}${"w780"}${movie?.poster_path})`,
+        backgroundImage: `url(${IMAGE_PATH}${"original"}${movie?.poster_path})`,
       }}
     >
       <div className="absolute">
-        <BackHomeButton link="/home/movies" />
+        <BackHomeButton link="/home" />
       </div>
       <div
         className="relative w-[100%] mt-[8rem] h-fit flex justify-evenly gap-[5rem] movie"
@@ -42,7 +47,7 @@ export default function Movie() {
           <p className="mt-[3rem] text-3xl lg:text-4xl">{movie?.overview}</p>
           <div className="flex flex-col sm:flex-row gap-[4.5rem] mt-[5rem] mx-auto sm:mx-0 w-fit">
             <ButtonWatchList title={true} />
-            <MainButton>Watch now</MainButton>
+            <MainButton onClick={handleShowTrailer} >Watch now</MainButton>
           </div>
         </div>
         {width > 768 && (
@@ -55,6 +60,8 @@ export default function Movie() {
           </div>
         )}
       </div>
+      {showTrailer &&
+        createPortal(<Trailer onClick={() => setShowTrailer(false)} trailer={trailer ? trailer : ''}/>, document.getElementById("trailer")!)}
     </div>
   );
 }
